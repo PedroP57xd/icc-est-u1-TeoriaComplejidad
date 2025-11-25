@@ -162,96 +162,115 @@ public void ejemplo() {
 
 ### **Explicación resumida**
 
-*(Aquí el estudiante explica por qué es O(1))*
+Este algoritmo siempre realiza la misma cantidad de operaciones sin importar el tamaño de la entrada. La suma de dos números y la impresión en pantalla son acciones fijas, por lo que el tiempo de ejecución no crece con n.
 
 ---
-## **2.2 Complejidad O(1) – Constante**
+## **2.2 Complejidad O(n) – Tiempo lineal**
 
-### **Archivo:** `ComplejidadConstante.java`
+### **Archivo:** `ComplejidadLineal.java`
 
 ### **Código del ejemplo**
 
 ```java
-public void ejemplo() {
-    System.out.println("Ejemplo O(1)");
-    int x = 10;
-    int y = 5;
-    int suma = x + y;
-}
+public static void lineal(int[] arr) {
+        for (int num : arr) {
+            System.out.println(num);
+        }
+    }
 ```
 
 ### **Explicación resumida**
 
-*(Aquí el estudiante explica por qué es O(1))*
+Explicación resumida: El algoritmo recorre todos los elementos del arreglo una sola vez. El número de operaciones depende directamente del tamaño de la entrada n. Si el arreglo tiene 10 elementos, se hacen 10 impresiones; si tiene 100, se hacen 100. Por eso es lineal.
 
 ---
-## **2.3 Complejidad O(1) – Constante**
+## **2.3 Complejidad O(n²) – Tiempo cuadrático**
 
-### **Archivo:** `ComplejidadConstante.java`
+### **Archivo:** `ComplejidadCuadratica.java`
 
 ### **Código del ejemplo**
 
 ```java
-public void ejemplo() {
-    System.out.println("Ejemplo O(1)");
-    int x = 10;
-    int y = 5;
-    int suma = x + y;
-}
+public static void cuadratica(int[] arr) {
+        for (int i : arr) {
+            for (int j : arr) {
+                System.out.println(i + ", " + j);
+            }
+        }
+    }
 ```
 
 ### **Explicación resumida**
 
-*(Aquí el estudiante explica por qué es O(1))*
+Explicación resumida: Aquí se usan dos bucles anidados, lo que significa que por cada elemento del arreglo se recorre nuevamente todo el arreglo. El número de operaciones es proporcional a n\times n, es decir, n^2. Por eso se clasifica como cuadrática.
 
 ---
-## **2.4 Complejidad O(1) – Constante**
+## **2.4 Complejidad O(log n) – Tiempo logarítmico**
 
-### **Archivo:** `ComplejidadConstante.java`
+### **Archivo:** `ComplejidadLogaritmico.java`
 
 ### **Código del ejemplo**
 
 ```java
-public void ejemplo() {
-    System.out.println("Ejemplo O(1)");
-    int x = 10;
-    int y = 5;
-    int suma = x + y;
-}
+public static boolean logaritmica(int[] arr, int objetivo) {
+        int inicio = 0;
+        int fin = arr.length - 1;
+
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+
+            if (arr[medio] == objetivo) {
+                return true;
+            } else if (arr[medio] < objetivo) {
+                inicio = medio + 1;
+            } else {
+                fin = medio - 1;
+            }
+        }
+        return false;
+    }
 ```
 
 ### **Explicación resumida**
 
-*(Aquí el estudiante explica por qué es O(1))*
+Explicación resumida: El algoritmo aplica búsqueda binaria, dividiendo el arreglo a la mitad en cada iteración. En lugar de recorrer todos los elementos, reduce el problema a la mitad sucesivamente. El número de pasos crece en proporción a \log n, lo que lo hace logarítmico.
 
 ---
-## **2.5 Complejidad O(1) – Constante**
+## **2.5 Complejidad O(n log n) – Merge Sort**
 
-### **Archivo:** `ComplejidadConstante.java`
+### **Archivo:** `ComplejidadMergeSort.java`
 
 ### **Código del ejemplo**
 
 ```java
-public void ejemplo() {
-    System.out.println("Ejemplo O(1)");
-    int x = 10;
-    int y = 5;
-    int suma = x + y;
-}
+public static int[] mergeSort(int[] arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+
+        int mid = arr.length / 2;
+        int[] izquierda = java.util.Arrays.copyOfRange(arr, 0, mid);
+        int[] derecha = java.util.Arrays.copyOfRange(arr, mid, arr.length);
+
+        return merge(mergeSort(izquierda), mergeSort(derecha));
+    }
 ```
 
 ### **Explicación resumida**
 
-*(Aquí el estudiante explica por qué es O(1))*
+Explicación resumida: Merge Sort divide el arreglo en mitades recursivamente (\log n divisiones) y en cada nivel combina los elementos (n operaciones). Al multiplicar ambos factores, la complejidad total es O(n\log n).
 
 ---
-**PARA CADA COMPLEJIDAD, REPETIR LA ESTRUCTURA ANTERIOR**
 
 
 # **Conclusiones**
 
-*(Aquí el estudiante agrega conclusiones propias del trabajo)*
+1. En el presente informe adquirimos diferentes conocimientos acerca de los algoritmos de ordenamiento y su complejidad dentro de un programa, cuáles son sus características y factores que influyen en el desarrollo de los mismos y cómo podemos aprovechar sus recursos para hacerlos una herramienta en nuestros futuros programas. 
 
-**POR ESTUDIANTE**: *(Nombre completo del estudiante)*
+**POR ESTUDIANTE**: Axel David Banegas Lazo
+
+2. En conclusion, gracias a esta investigacion se logro comprender lo que necesita un programa tanto en tiempo y espacio para poder funcionar de la manera mas eficiente, y mas especificamente en los metodos que se han venido trabajando en las ultimas clases, asi podremos comparar varios algoritmos y poder eleguir correctamente el mas eficiente para cada problematica, creando asi codigo rapido y ordenado. 
+
+**POR ESTUDIANTE**: Pedro Fernando Panjón Peralta
 
 ---
